@@ -4,6 +4,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import LoadingScreen from "../loadingScreen";
 import IconBlinking from "../loadingScreen/iconBlinking";
+import Category from "./category";
+import LaunchedToday from "./launchedToday";
 const image1 = require('../../images/image1.jpg')
 const image2 = require('../../images/image2.jpg')
 const image3 = require('../../images/image3.jpg')
@@ -23,7 +25,7 @@ const HorizantalScroll = ({ title, content }) => {
                 horizontal
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item, index }) => (
-                    <TouchableOpacity onPress={() => navigation.navigate('LoadingScreen')} style={{ width: 150, height: 200, marginRight: 20, backgroundColor: 'white', marginTop: 20 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('DetailsScreen')} style={{ width: 150, height: 200, marginRight: 20, backgroundColor: 'white', marginTop: 20 }}>
                         <Image
                             source={item?.image}
                             style={{ width: 150, height: 200, objectFit: 'contain' }}
@@ -90,14 +92,9 @@ const DashBoard = () => {
     ]
 
     const category = [
-        { name: 'CHandu', id: 1, image: image1 },
-        { name: 'CHandu', id: 2, image: image2 },
-        { name: 'CHandu', id: 3, image: image3 },
-        { name: 'CHandu', id: 4, image: image4 },
-        { name: 'CHandu', id: 5, image: image5 },
-        { name: 'CHandu', id: 7, image: image6 },
-        { name: 'CHandu', id: 8, image: image7 },
-        { name: 'CHandu', id: 9, image: image1 },
+        { name: 'CHandu', id: 1, image: image1, image2: image2, image3: image3, image4: image4 },
+        { name: 'CHandu', id: 2, image: image7, image2: image6, image3: image5, image4: image1 },
+
     ]
 
     const latest = [
@@ -154,7 +151,7 @@ const DashBoard = () => {
                     </View>
                     <View style={{ marginTop: 40 }} />
                     {mens.map((item, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate('LoadingScreen')} key={index} style={{ marginTop: 10, marginLeft: '5%', flexDirection: 'row', marginBottom: 40, alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('DetailsScreen')} key={index} style={{ marginTop: 10, marginLeft: '5%', flexDirection: 'row', marginBottom: 40, alignItems: 'center' }}>
                             <View style={{ width: 15, height: 15, borderRadius: 20, backgroundColor: 'lightgrey' }}></View>
                             <Text style={{ fontWeight: 700, marginLeft: 10 }}>{item.name}</Text>
                         </TouchableOpacity>
@@ -169,7 +166,7 @@ const DashBoard = () => {
                 </View >
             )}
         >
-            <View style={{ flex: 1, backgroundColor: "#fff" }}>
+            <View style={{ flex: 1, backgroundColor: "#fff", marginTop : statusBarHeight }}>
                 {/* Header */}
                 <View style={{ flexDirection: "row", alignItems: "center", justifyContent: 'space-between', width: "100%", height: 70, borderBottomLeftRadius: 12, borderBottomRightRadius: 12, backgroundColor: "white", elevation: 5 }}>
                     <TouchableOpacity style={{ paddingHorizontal: 10 }} onPress={openDrawer}>
@@ -197,10 +194,11 @@ const DashBoard = () => {
 
                     </View>
                     <ScrollView showsVerticalScrollIndicator={false}>
-                        <HorizantalScroll title={'Category'} content={category} />
+                        <Category content={category} />
 
                         <HorizantalScroll title={'Latest Collection'} content={latest} />
-                        <HorizantalScroll title={'Launched Today'} content={lanchedToday} />
+                        {/* <HorizantalScroll title={'Launched Today'} content={lanchedToday} /> */}
+                        <LaunchedToday content={lanchedToday} />
                         <Image
                             source={require('../../images/logo2.png')}
                             style={{ height: 300, width: '100%', objectFit: 'contain', marginTop: 30 }}
