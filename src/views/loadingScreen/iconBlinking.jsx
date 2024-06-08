@@ -1,9 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useRef, useEffect } from "react";
 import { View, Animated, Easing, Text, Image } from "react-native";
 
 const IconBlinking = () => {
     const scale = useRef(new Animated.Value(1)).current;
     const opacity = useRef(new Animated.Value(1)).current;
+    const navigation = useNavigation()
 
     useEffect(() => {
         startAnimation();
@@ -53,10 +55,10 @@ const IconBlinking = () => {
                         alignItems: 'center'
                     }}
                 >
-                     <Image
-                    source={require('../../images/logo2.png')}
-                    style={{ width: '100%', height: 300, objectFit: 'contain' }}
-                />
+                    <Image
+                        source={require('../../images/logo2.png')}
+                        style={{ width: '100%', height: 300, objectFit: 'contain' }}
+                    />
                 </View>
             </Animated.View>
         </View>

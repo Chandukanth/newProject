@@ -166,7 +166,7 @@ const DashBoard = () => {
                 </View >
             )}
         >
-            <View style={{ flex: 1, backgroundColor: "#fff", marginTop : statusBarHeight }}>
+            <View style={{ flex: 1, backgroundColor: "#fff",  }}>
                 {/* Header */}
                 <View style={{ flexDirection: "row", alignItems: "center", justifyContent: 'space-between', width: "100%", height: 70, borderBottomLeftRadius: 12, borderBottomRightRadius: 12, backgroundColor: "white", elevation: 5 }}>
                     <TouchableOpacity style={{ paddingHorizontal: 10 }} onPress={openDrawer}>

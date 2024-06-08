@@ -113,25 +113,12 @@ const DetailsScreen = () => {
 
 
                     </View>
-                    <View style={{ marginTop: 30 }}>
-                        <Text style={{ fontWeight: 700 }}>Delivery Details</Text>
-
-                    </View>
-                    <View style={{ marginTop: 10, borderWidth: 0.5, borderColor: 'black', height: 40, borderRadius: 10, flexDirection: 'row', alignItems:'center' }}>
-                        <TextInput
-                            style={{ width: '80%', marginLeft : 10 }}
-                            keyboardType="number-pad"
-                            cursorColor={'black'}
-                        />
-                        <Text style={{color : 'green'}}>CHECK</Text>
-
-                    </View>
-
+                  
                     <LaunchedToday title={'Similar Products'} content={lanchedToday} />
 
 
                 </ScrollView>
-
+                <View style={{ height: 80 }}></View>
 
 
             </View>
@@ -142,7 +129,7 @@ const DetailsScreen = () => {
                     <Ionicons style={{ marginLeft: 10 }} name="heart" size={20} color="black" />
 
                 </TouchableOpacity>
-                <TouchableOpacity style={{ backgroundColor: 'black', width: '50%', height: 30, marginLeft: 10, borderRadius: 6, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={()=> navigation.navigate('CartScreen')} style={{ backgroundColor: 'black', width: '50%', height: 30, marginLeft: 10, borderRadius: 6, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                     <Text style={{ color: 'white' }}>Add to Cart</Text>
                     <Ionicons style={{ marginLeft: 10 }} name="cart" size={20} color="white" />
 
